@@ -10,8 +10,8 @@
 В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.
 
 Ответ:
-`![alt text](https://github.com/Wanderwille/scrinshot/blob/main/image%20(5).png)`
-`![alt text](https://github.com/Wanderwille/scrinshot/blob/main/image%20(4).png)`
+![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/image%20(5).png)
+![Скринштот 2](https://github.com/Wanderwille/scrinshot/blob/main/image%20(4).png)
 
 ### Задание 2
 Что нужно сделать:
