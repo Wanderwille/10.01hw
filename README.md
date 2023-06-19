@@ -49,3 +49,4 @@
 
 Ответ: 
 ![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/image%20(10).png)
+![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/image%20(11).png)
