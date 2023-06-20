@@ -1,52 +1,48 @@
-# Домашнее задание к занятию "Обзор систем IT-мониторинга" - "Подус Сергей"       
-
+# Домашнее задание к занятию "Zabbix - часть 1" - "Подус Сергей"       
 
 ### Задание 1
-Создайте виртуальную машину в Yandex Compute Cloud и с помощью Yandex Monitoring создайте дашборд, на котором будет видно загрузку процессора.
+Установите Zabbix Server с веб-интерфейсом.
 
 Процесс выполнения
-В окне браузера откройте облачную платформу Yandex Cloud
-Перейдите в раздел "Все сервисы" > "Инфраструктура и сеть" > "Compute Cloud"
-Нажмите на синюю кнопку "Создать ВМ" в правом верхнем углу окна браузера
-Задайте имя виртуальной машины. Используйте английские буквы и цифры.
-Выберите операционную систему Debian 11
-Установите объём HDD равный 3ГБ
-Выберите платформу Intel Ice Lake
-Установите количество vCPU равное 2
-Установите гарантированную долю vCPU равную 20%
-Задайте количество RAM равное 1ГБ
-Поставьте галочку "Прерываемая"
-В разделе "Доступ" выберите сервисный аккаунт с ролью monitoring.editor. Если такого аккаунта нету, нажмите на кнопку "Создать новый". Задайте имя аккаунта английскими буквами, напротив надписи "Роли в каталоге" нажмите на знак "плюс". Прокручивая колесо мыши на себя, найдите роль monitoring.editor и нажмите на неё левой кнопкой мыши. Теперь вы сможете найти только что созданную роль в выпадающем списке аккаунтов.
-Задайте логин учётной записи вашей виртуальной машины
-Вставьте публичный SHH-ключ в поле SSH-ключ. Если этого ключа у вас нету, создайте его с помощью утилиты PuTTYgen
-Поставьте галочку "Установить" в пункте "Агент сбора метрик"
-Нажмите на синюю кнопку "Создать ВМ"
-Перейдите в раздел "Все сервисы" > "Инфраструктура и сеть" > "Monitoring"
-Нажмите на кнопку "Создать дашборд", расположенную в разделе "Возможности сервиса" > "Дашборды"
-В открывшемся окне в разделе "Добавить виджет" нажмите на "График"
-Пред вам предстанет конструктор запросов, выберите "Запрос А"
-В параметре service конструктора запросов выберите Compute Cloud
-В появившемся параметре name конструктора запросов выберите cpu_utilization
-Поправьте диапазон времени отрисовки графика нажав на кнопку "Сейчас" в верху экрана, левее кнопок 3m, 1h, 1d, 1w, "Отменить".
-Нажмите на кнопку "Сохранить" в правом верхнем углу экрана
-Задайте имя дашборда, если появится окно ввода имени дашборда
-Сделайте скриншот
-Требования к результату
-прикрепите в файл README.md скриншот вашего дашборда в Yandex Monitoring с мониторингом загрузки процессора виртуальной машины
+Выполняя ДЗ сверяйтесь с процессом отражённым в записи лекции.
+Установите PostgreSQL. Для установки достаточна та версия что есть в системном репозитороии Debian 11
+Пользуясь конфигуратором комманд с официального сайта, составьте набор команд для установки последней версии Zabbix с поддержкой PostgreSQL и Apache
+Выполните все необходимые команды для установки Zabbix Server и Zabbix Web Server
+Ответ: 
+![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/VirtualBox_Deba_20_06_2023_09_32_10.png)
 
-Ответ:
-![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/image%20(9).png)
+Команды для установки и настройки:
+# wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
+# dpkg -i zabbix-release_6.4-1+debian12_all.deb
+# apt update
+# apt install zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+# sudo -u postgres createuser --pwprompt zabbix
+# sudo -u postgres createdb -O zabbix zabbix
+# zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
+# systemctl restart zabbix-server zabbix-agent apache2
+# systemctl enable zabbix-server zabbix-agent apache2
+Так же была отредактирована строчка DBpassword=*** в файле /etc/zabbix/zabbix_server.conf
 
 ### Задание 2
+Установите Zabbix Agent на два хоста.
 
-Задание 2 со звёздочкой*
-Это дополнительное задание. Его можно не выполнять. Это не повлияет на зачёт. Вы можете его выполнить, если хотите глубже разобраться в материале.
+Процесс выполнения
+Выполняя ДЗ сверяйтесь с процессом отражённым в записи лекции.
+Установите Zabbix Agent на 2 виртмашины, одной из них может быть ваш Zabbix Server
+Добавьте Zabbix Server в список разрешенных серверов ваших Zabbix Agentов
+Добавьте Zabbix Agentов в раздел Configuration > Hosts вашего Zabbix Servera
+Проверьте что в разделе Latest Data начали появляться данные с добавленных агентов
 
-С помощью Yandex Monitoring сделайте 2 алерта на загрузку процессора: WARN и ALARM. Создайте уведомление по e-mail.
+Ответ:
+![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/zabbix%201.png)
+![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/zabbix2.png)
+![Скриншот 4](https://github.com/Wanderwille/scrinshot/blob/main/zabbix%203.png)
 
-Требования к результату
-прикрепите в файл README.md скриншот уведомления в Yandex Monitoring
-
-Ответ: 
-![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/image%20(10).png)
-![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/image%20(11).png)
+Команды используемые в задании:
+Так как все ВМ это Debian то:
+# wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
+# dpkg -i zabbix-release_6.4-1+debian12_all.deb
+# apt update
+# apt install zabbix-agent2 zabbix-agent2-plugin-*
+# systemctl restart zabbix-agent2
+# systemctl enable zabbix-agent2
