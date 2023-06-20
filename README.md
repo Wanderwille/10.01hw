@@ -12,16 +12,16 @@
 ![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/VirtualBox_Deba_20_06_2023_09_32_10.png)
 
 Команды для установки и настройки:
-**wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb**
-**dpkg -i zabbix-release_6.4-1+debian12_all.deb**
-**apt update**
-**apt install zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent**
-**sudo -u postgres createuser --pwprompt zabbix**
-**sudo -u postgres createdb -O zabbix zabbix**# 
-**zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix**
-**systemctl restart zabbix-server zabbix-agent apache2** 
-**systemctl enable zabbix-server zabbix-agent apache2**
-Так же была отредактирована строчка DBpassword=*** в файле /etc/zabbix/zabbix_server.conf**
+##### wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
+##### dpkg -i zabbix-release_6.4-1+debian12_all.deb
+##### apt update
+##### apt install zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+##### sudo -u postgres createuser --pwprompt zabbix
+##### sudo -u postgres createdb -O zabbix zabbix##
+##### zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
+##### systemctl restart zabbix-server zabbix-agent apache2
+##### systemctl enable zabbix-server zabbix-agent apache2
+Так же была отредактирована строчка DBpassword=#####* в файле /etc/zabbix/zabbix_server.conf
 
 ### Задание 2
 Установите Zabbix Agent на два хоста.
@@ -40,9 +40,9 @@
 
 Команды используемые в задании:
 Так как все ВМ это Debian то:
-**wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.de**
-**dpkg -i zabbix-release_6.4-1+debian12_all.deb**
-**apt updat**
-**apt install zabbix-agent2 zabbix-agent2-plugin-**
-**systemctl restart zabbix-agent**
-**systemctl enable zabbix-agent**
+##### wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
+##### dpkg -i zabbix-release_6.4-1+debian12_all.deb
+##### apt update 
+##### apt install zabbix-agent2 zabbix-agent2-plugin-*
+##### systemctl restart zabbix-agent
+##### systemctl enable zabbix-agent
