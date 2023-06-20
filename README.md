@@ -8,6 +8,7 @@
 Установите PostgreSQL. Для установки достаточна та версия что есть в системном репозитороии Debian 11
 Пользуясь конфигуратором комманд с официального сайта, составьте набор команд для установки последней версии Zabbix с поддержкой PostgreSQL и Apache
 Выполните все необходимые команды для установки Zabbix Server и Zabbix Web Server
+
 Ответ: 
 ![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/VirtualBox_Deba_20_06_2023_09_32_10.png)
 
