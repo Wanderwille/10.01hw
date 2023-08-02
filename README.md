@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "Резервное копирование" - "Подус Сергей"       
+# Домашнее задание к занятию "Disaster recovery и Keepalived" - "Подус Сергей"       
     
 ### Задание 1
 Дана схема для Cisco Packet Tracer, рассматриваемая в лекции.
@@ -8,7 +8,7 @@
 На проверку отправьте получившуюся схему в формате pkt и скриншот, где виден процесс настройки маршрутизатора.
 
 Ответ:
-Файл конфига: https://github.com/Wanderwille/file/blob/main/Домашнее%20задание%20hsrp.pkt
+Файл схемы: https://github.com/Wanderwille/file/blob/main/Домашнее%20задание%20hsrp.pkt
 ![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/Router1.png)
 ![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/Router2.png)
 
