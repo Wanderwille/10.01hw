@@ -5,8 +5,8 @@
 Установите и настройте HAProxy, воспользуйтесь материалами к лекции по ссылке
 Настройте балансировку Round-robin на 4 уровне.
 На проверку направьте конфигурационный файл haproxy, скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy.
-####Ответ:
-###Файл конфига: https://github.com/Wanderwille/file/blob/main/haproxy.cfg.txt
+#### Ответ:
+### Файл конфига: https://github.com/Wanderwille/file/blob/main/haproxy.cfg.txt
 ![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/server%201.png)
 ![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/server%202.png)
 ![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/curl.png)
@@ -17,8 +17,8 @@
 HAproxy должен балансировать только тот http-трафик, который адресован домену example.local
 На проверку направьте конфигурационный файл haproxy, скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy c использованием домена example.local и без него.
 
-####Ответ:
-###Файл конфига: https://github.com/Wanderwille/file/blob/main/haproxy2.cfg.txt
+#### Ответ:
+### Файл конфига: https://github.com/Wanderwille/file/blob/main/haproxy2.cfg.txt
 ![Скриншот 4](https://github.com/Wanderwille/scrinshot/blob/main/мь4.png)
 ![Скриншот 5](https://github.com/Wanderwille/scrinshot/blob/main/мь45.png)
 
