@@ -1,29 +1,26 @@
 # Домашнее задание к занятию "Disaster recovery и Keepalived" - "Подус Сергей"       
     
 ### Задание 1
-Дана схема для Cisco Packet Tracer, рассматриваемая в лекции.
-На данной схеме уже настроено отслеживание интерфейсов маршрутизаторов Gi0/1 (для нулевой группы)
-Необходимо аналогично настроить отслеживание состояния интерфейсов Gi0/0 (для первой группы).
-Для проверки корректности настройки, разорвите один из кабелей между одним из маршрутизаторов и Switch0 и запустите ping между PC0 и Server0.
-На проверку отправьте получившуюся схему в формате pkt и скриншот, где виден процесс настройки маршрутизатора.
-
+Запустите два simple python сервера на своей виртуальной машине на разных портах
+Установите и настройте HAProxy, воспользуйтесь материалами к лекции по ссылке
+Настройте балансировку Round-robin на 4 уровне.
+На проверку направьте конфигурационный файл haproxy, скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy.
 Ответ:
-Файл схемы: https://github.com/Wanderwille/file/blob/main/Домашнее%20задание%20hsrp.pkt
-![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/Router1.png)
-![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/Router2.png)
-
+Файл конфига: https://github.com/Wanderwille/file/blob/main/haproxy.cfg.txt
+![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/server%201.png)
+![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/server%202.png)
+![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/curl.png)
+![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/haproxy%20web.png)
 ### Задание 2
-Запустите две виртуальные машины Linux, установите и настройте сервис Keepalived как в лекции, используя пример конфигурационного файла.
-Настройте любой веб-сервер (например, nginx или simple python server) на двух виртуальных машинах
-Напишите Bash-скрипт, который будет проверять доступность порта данного веб-сервера и существование файла index.html в root-директории данного веб-сервера.
-Настройте Keepalived так, чтобы он запускал данный скрипт каждые 3 секунды и переносил виртуальный IP на другой сервер, если bash-скрипт завершался с кодом, отличным от нуля (то есть порт веб-сервера был недоступен или отсутствовал index.html). Используйте для этого секцию vrrp_script
-На проверку отправьте получившейся bash-скрипт и конфигурационный файл keepalived, а также скриншот с демонстрацией переезда плавающего ip на другой сервер в случае недоступности порта или файла index.html
+Запустите три simple python сервера на своей виртуальной машине на разных портах
+Настройте балансировку Weighted Round Robin на 7 уровне, чтобы первый сервер имел вес 2, второй - 3, а третий - 4
+HAproxy должен балансировать только тот http-трафик, который адресован домену example.local
+На проверку направьте конфигурационный файл haproxy, скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy c использованием домена example.local и без него.
 
 Ответ:
-Файл конфига: https://github.com/Wanderwille/file/blob/main/keepalived.conf.txt
-Скрипт: https://github.com/Wanderwille/file/blob/main/html-check.sh.txt
-![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/192.168.56.115.png)
-![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/192.168.1.197.png)
+Файл конфига: https://github.com/Wanderwille/file/blob/main/haproxy2.cfg.txt
+![Скриншот 4](https://github.com/Wanderwille/scrinshot/blob/main/мь4.png)
+![Скриншот 5](https://github.com/Wanderwille/scrinshot/blob/main/мь45.png)
 
 
 
