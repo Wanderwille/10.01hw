@@ -1,42 +1,91 @@
-# Домашнее задание к занятию " ELK " - "Подус Сергей"
+# Домашнее задание по теме "Базы Данных" - Подус Сергей
 
 ## Задание 1
 
-Установите и запустите Elasticsearch, после чего поменяйте параметр cluster_name на случайный.
+Опишите не менее семи таблиц, из которых состоит база данных:
 
-Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch. Где будет виден нестандартный cluster_name.
+какие данные хранятся в этих таблицах;
 
-### Ответ: 
+какой тип данных у столбцов в этих таблицах, если данные хранятся в PostgreSQL.
 
-![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/Elastic.png)
+Приведите решение к следующему виду:
 
-## Задание 2
+Сотрудники (
 
-Установите и запустите Kibana.
+идентификатор, первичный ключ, serial,
 
-Приведите скриншот интерфейса Kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty.
+фамилия varchar(50),
 
+...
 
-### Ответ:
+идентификатор структурного подразделения, внешний ключ, integer).
 
-![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/Kibana.png)
+## Ответ:
 
-## Задание 3
+Данные находящиеся в таблицах:
 
-Установите и запустите Logstash и Nginx. С помощью Logstash отправьте access-лог Nginx в Elasticsearch.
+# 1.1
 
-Приведите скриншот интерфейса Kibana, на котором видны логи Nginx.
+1. ФИО сотрудника
+2. Оклад
+3. Должность
+4. Тип подразделения
+5. Структурное подразделение
+6. Дата найма
+7. Адрес филиала
+8. Название назначенного проекта
 
-### Ответ:
+Тип данных в  таблицах:
 
-![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/image%20(17).png)
+1. фио - строковый (varchar)
+2. ОКЛАД - числовой (decimal/numeric)
+3. должность - строковый (varchar)
+4. Тип подразделения - строковый (varchar)
+5. Дата - дата и время (date)
+6. Адрес - местонахождение филиала (varchar)
+7. Проэкт - строковый (varchar)
 
-## Задание 4
+#### employees (
 
-Установите и запустите Filebeat. Переключите поставку логов Nginx с Logstash на Filebeat.
+1. id_employee, not null, auto_increment, primary_key
+2. last_name, varchar(50), not null
+3. first_name, varchar(50), not null
+4. surname, varchar(50)
+5. rank, foreign_key
+6. salary, foreign_key
+7. subdivision, foreign_key
+8. office, foreign_key
+9. project, foreign_key
+10. hired_since, date, not null 
 
-Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.
+#### subdivisions (
 
-### Ответ:
+1. id_subdivision, int, not null, auto_increment, primary_key
+2. subdivision, varchar(100), not null
+3. type_of_subdivision, foreign_key
+4. office, foreign_key )
 
-![Скриншот 4](https://github.com/Wanderwille/scrinshot/blob/main/image%20(18).png)
+#### type_of_subdivision (
+
+1. id_of_type, int, not null, auto_increment, primary_key
+2. type )
+
+#### offices (
+
+1. id_office, int, not null, auto_increment, primary_key
+2. office, varchar(200), not null )
+
+#### projects (
+
+1. id_project, int, not null, auto_increment, primary_key
+2. project, varchar(100), not null )
+
+#### ranks (
+
+1. id_rank, int, not null, auto_increment, primary_key
+2. rank, varchar(100), not null )
+
+#### salary (
+
+1. id_salary, int, not null, auto_increment, primary_key
+2. salary, real, not null )
