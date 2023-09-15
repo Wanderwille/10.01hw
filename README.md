@@ -1,91 +1,40 @@
-# Домашнее задание по теме "Базы Данных" - Подус Сергей
+# Домашнее задание к занятию "Работа с данными (DDL/DML)" - Подус Сергей 
 
 ## Задание 1
 
-Опишите не менее семи таблиц, из которых состоит база данных:
+1.1. Поднимите чистый инстанс MySQL версии 8.0+. Можно использовать локальный сервер или контейнер Docker.
 
-какие данные хранятся в этих таблицах;
+1.2. Создайте учётную запись sys_temp.
 
-какой тип данных у столбцов в этих таблицах, если данные хранятся в PostgreSQL.
+1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 
-Приведите решение к следующему виду:
+1.4. Дайте все права для пользователя sys_temp.
 
-Сотрудники (
+1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
-идентификатор, первичный ключ, serial,
+1.6. Переподключитесь к базе данных от имени sys_temp.
 
-фамилия varchar(50),
+Для смены типа аутентификации с sha2 используйте запрос:
 
-...
+ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
-идентификатор структурного подразделения, внешний ключ, integer).
+1.7. Восстановите дамп в базу данных.
+
+1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
+
+Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.
 
 ## Ответ:
 
-Данные находящиеся в таблицах:
+1.3. ![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/sys-temp.png)
 
-# 1.1
+1.5. ![Скриншот 2](https://github.com/Wanderwille/scrinshot/blob/main/priveleges.png)
 
-1. ФИО сотрудника
-2. Оклад
-3. Должность
-4. Тип подразделения
-5. Структурное подразделение
-6. Дата найма
-7. Адрес филиала
-8. Название назначенного проекта
+1.8. ![Скриншот 3](https://github.com/Wanderwille/scrinshot/blob/main/DBeaver.png)
 
-Тип данных в  таблицах:
+## Задание 2
 
-1. фио - строковый (varchar)
-2. ОКЛАД - числовой (decimal/numeric)
-3. должность - строковый (varchar)
-4. Тип подразделения - строковый (varchar)
-5. Дата - дата и время (date)
-6. Адрес - местонахождение филиала (varchar)
-7. Проэкт - строковый (varchar)
+## Ответ: 
 
-#### employees (
-
-1. id_employee, not null, auto_increment, primary_key
-2. last_name, varchar(50), not null
-3. first_name, varchar(50), not null
-4. surname, varchar(50)
-5. rank, foreign_key
-6. salary, foreign_key
-7. subdivision, foreign_key
-8. office, foreign_key
-9. project, foreign_key
-10. hired_since, date, not null 
-
-#### subdivisions (
-
-1. id_subdivision, int, not null, auto_increment, primary_key
-2. subdivision, varchar(100), not null
-3. type_of_subdivision, foreign_key
-4. office, foreign_key )
-
-#### type_of_subdivision (
-
-1. id_of_type, int, not null, auto_increment, primary_key
-2. type )
-
-#### offices (
-
-1. id_office, int, not null, auto_increment, primary_key
-2. office, varchar(200), not null )
-
-#### projects (
-
-1. id_project, int, not null, auto_increment, primary_key
-2. project, varchar(100), not null )
-
-#### ranks (
-
-1. id_rank, int, not null, auto_increment, primary_key
-2. rank, varchar(100), not null )
-
-#### salary (
-
-1. id_salary, int, not null, auto_increment, primary_key
-2. salary, real, not null )
+Ответ приложен к ссылке в файле формата Excel
