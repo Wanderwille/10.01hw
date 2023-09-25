@@ -6,7 +6,9 @@
 
 ## Ответ:
 
-![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/image%20(20).png)
+UPD:
+
+![Скриншот 1](https://github.com/Wanderwille/scrinshot/blob/main/уникальные%20районы.png)
 
 ## Задание 2:
 
